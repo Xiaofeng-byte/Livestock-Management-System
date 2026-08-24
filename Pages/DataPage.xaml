@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMP609A2.Pages.DataPage"
+             xmlns:pages="clr-namespace:COMP609A2.Pages"
+             xmlns:local="clr-namespace:COMP609A2"
+             x:DataType="pages:DataPage"
+             Title="DataPage">
+
+
+    <CollectionView ItemsSource="{Binding LiveStocks}"
+                 ItemsUpdatingScrollMode="KeepItemsInView" Margin="10">
+        <CollectionView.Header>
+            <Grid BackgroundColor="LightBlue" ColumnDefinitions="*,*,*,*,*,*,*">
+                <Label Grid.Column="0" Text="Type"/>
+                <Label Grid.Column="1" Text="Id"/>
+                <Label Grid.Column="2" Text="Expense"/>
+                <Label Grid.Column="3" Text="Weight"/>
+                <Label Grid.Column="4" Text="Colour"/>
+                <Label Grid.Column="5" Text="Milk"/>
+                <Label Grid.Column="6" Text="Wool"/>
+                <!--<Label Grid.Column="7" Text="Income"/>
+                <Label Grid.Column="8" Text="Cost"/>-->
+                
+            </Grid>
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="local:LiveStock">
+                <Border BackgroundColor="Transparent" StrokeShape="RoundRectangle 10">
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*">
+                        <Label Grid.Column="0" Text="{Binding ClassName}"/>
+                        <Label Grid.Column="1" Text="{Binding Id}"/>
+                        <Label Grid.Column="2" Text="{Binding Expense}"/>
+                        <Label Grid.Column="3" Text="{Binding Weight}"/>
+                        <Label Grid.Column="4" Text="{Binding Colour}"/>
+                        <Label Grid.Column="5" x:DataType="local:Cow" Text="{Binding Milk}"/>
+                        <Label Grid.Column="6" x:DataType="local:Sheep" Text="{Binding Wool}"/>
+                        <!--<Label Grid.Column="7" Text="{Binding Income}"/>
+                        <Label Grid.Column="8" Text="{Binding Cost}"/>-->
+                        
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
+<!--x:DataType="pages:DataPage"-->
+
+<!--xmlns:pages="clr-namespace:COMP609A2.Pages"-->
+<!--xmlns:local="clr-namespace:COMP609A2"-->

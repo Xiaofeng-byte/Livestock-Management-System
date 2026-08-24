@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMP609A2.Pages.CreatePage"
+             xmlns:pages="clr-namespace:COMP609A2.Pages"
+             xmlns:local="clr-namespace:COMP609A2"
+             x:DataType="pages:CreatePage"
+             Title="CreatePage">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Grid BackgroundColor="Transparent" ColumnDefinitions="100,200" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+            <Label Grid.Column="0" Grid.Row="0" Text="Type" VerticalTextAlignment="Center"/>
+            <Picker Grid.Column="1" Grid.Row="0" x:Name="TypePicker" ItemsSource="{Binding LivestockTypes}"
+                    SelectedIndexChanged="TypePicker_SelectedIndexChanged"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Expense" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="1" Keyboard="Numeric" x:Name="ExpenseInput" Placeholder="0.00"/>
+            <Label Grid.Column="0" Grid.Row="2" Text="Weight" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="2" Keyboard="Numeric" x:Name="WeightInput" Placeholder="0.00"/>
+            <Label Grid.Column="0" Grid.Row="3" Text="Colour" VerticalTextAlignment="Center"/>
+            <Picker Grid.Column="1" Grid.Row="3" x:Name="ColourPicker"/>
+            <Label Grid.Column="0" Grid.Row="4" x:Name="Production" Text="Production" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="4" Keyboard="Numeric" x:Name="ProductionInput" Placeholder="0.00"/>
+        </Grid>
+        <Button Text="Create" Clicked="CreateButton_Clicked" WidthRequest="100"
+        HeightRequest="40" HorizontalOptions="Start"/>
+    </VerticalStackLayout>
+</ContentPage>
