@@ -56,7 +56,7 @@ public partial class UpdatePage : ContentPage
             await DisplayAlertAsync("Validation", "Please input digitals for expense and weight.", "OK");
             return;
         }
-        if (livestock.ClassName == "Cow")
+        if (livestock != null && livestock.ClassName == "Cow")
         {
             Cow ls = (Cow)livestock;
             ls.Expense = expense;
@@ -65,7 +65,7 @@ public partial class UpdatePage : ContentPage
             ls.Milk = production;
             added = _dbs.UpdateItem(ls);
         }
-        else if (livestock.ClassName == "Sheep")
+        else if (livestock != null && livestock.ClassName == "Sheep")
         {
             Sheep ls = (Sheep)livestock;
             ls.Expense = expense;
@@ -75,7 +75,11 @@ public partial class UpdatePage : ContentPage
             added = _dbs.UpdateItem(ls);
         }
         else
+        {
+            await DisplayAlertAsync("Error", "Please choose an ID first", "OK");
             return;
+        }
+            
         
         if (added > 0)
         {

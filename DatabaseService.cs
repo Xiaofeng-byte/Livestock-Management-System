@@ -45,4 +45,8 @@ public class DatabaseService
         }
         return item;
     }
+    public int DeleteItem(LiveStock item) 
+    {
+        return _conn.Delete(item);
+    }
 }
