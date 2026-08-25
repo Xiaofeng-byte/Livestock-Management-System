@@ -81,6 +81,10 @@ public partial class CreatePage : ContentPage
             WeakReferenceMessenger.Default.Send(new DBUpdateMessage(true));
             await DisplayAlertAsync("Success", $"Added {livestockType} with ID {ls.Id}.", "OK");
             TypePicker.SelectedItem = null;
+            ExpenseInput.Text = null;
+            WeightInput.Text = null;
+            ProductionInput.Text = null;
+            ColourPicker.SelectedItem = null;
         }
         else
         {
