@@ -10,6 +10,7 @@
     <TabBar>
         <ShellContent Shell.NavBarIsVisible="False" Title="Livestock Listing" ContentTemplate="{DataTemplate Pages:DataPage}"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Create" ContentTemplate="{DataTemplate Pages:CreatePage}"/>
+        <ShellContent Shell.NavBarIsVisible="False" Title="Update" ContentTemplate="{DataTemplate Pages:UpdatePage}"/>
     </TabBar>
 
 </Shell>

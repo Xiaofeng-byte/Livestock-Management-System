@@ -31,4 +31,18 @@ public class DatabaseService
     {
         return _conn.Insert(item);
     }
+    public int UpdateItem(LiveStock item)
+    {
+        return _conn.Update(item);
+    }
+    public LiveStock FindItem(int id)
+    {
+        LiveStock item;
+        item = _conn.Find<Cow>(id);
+        if (item == null)
+        {
+            item = _conn.Find<Sheep>(id);
+        }
+        return item;
+    }
 }

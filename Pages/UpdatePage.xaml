@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMP609A2.Pages.UpdatePage"
+             xmlns:pages="clr-namespace:COMP609A2.Pages"
+             xmlns:local="clr-namespace:COMP609A2"
+             x:DataType="pages:UpdatePage"
+             Title="UpdatePage">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Grid BackgroundColor="Transparent" ColumnDefinitions="100,200" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+            <Label Grid.Column="0" Grid.Row="0" Text="ID" VerticalTextAlignment="Center"/>
+            <Picker Grid.Column="1" Grid.Row="0" x:Name="IDPicker" ItemsSource="{Binding Id}"
+                SelectedIndexChanged="IDPicker_SelectedIndexChanged"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Type" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="1" x:Name="TypeUpdate" IsReadOnly="True" BackgroundColor="LightBlue"/>
+            <Label Grid.Column="0" Grid.Row="2" Text="Expense" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="2" Keyboard="Numeric" x:Name="ExpenseUpdate" Placeholder="0.00" BackgroundColor="LightBlue"/>
+            <Label Grid.Column="0" Grid.Row="3" Text="Weight" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="3" Keyboard="Numeric" x:Name="WeightUpdate" Placeholder="0.00" BackgroundColor="LightBlue"/>
+            <Label Grid.Column="0" Grid.Row="4" Text="Colour" VerticalTextAlignment="Center"/>
+            <Picker Grid.Column="1" Grid.Row="4" x:Name="ColourPicker" BackgroundColor="LightBlue"/>
+            <Label Grid.Column="0" Grid.Row="5" x:Name="Production" Text="Production" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Grid.Row="5" Keyboard="Numeric" x:Name="ProductionUpdate" Placeholder="0.00" BackgroundColor="LightBlue"/>
+        </Grid>
+        <Button Text="Update" Clicked="UpdateButton_Clicked" WidthRequest="100"
+    HeightRequest="40" HorizontalOptions="Start"/>
+    </VerticalStackLayout>
+</ContentPage>
