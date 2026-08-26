@@ -32,10 +32,10 @@
                         <Label Grid.Column="0" Text="{Binding ClassName}"/>
                         <Label Grid.Column="1" Text="{Binding Id}"/>
                         <Label Grid.Column="2" Text="{Binding Expense}"/>
-                        <Label Grid.Column="3" Text="{Binding Weight/Kg}"/>
+                        <Label Grid.Column="3" Text="{Binding Weight}"/>
                         <Label Grid.Column="4" Text="{Binding Colour}"/>
-                        <Label Grid.Column="5" x:DataType="local:Cow" Text="{Binding Milk/L}"/>
-                        <Label Grid.Column="6" x:DataType="local:Sheep" Text="{Binding Wool/Kg}"/>
+                        <Label Grid.Column="5" x:DataType="local:Cow" Text="{Binding Milk}"/>
+                        <Label Grid.Column="6" x:DataType="local:Sheep" Text="{Binding Wool}"/>
                         <Button Grid.Column="7" Text="Delete" Clicked="DeleteButton_Clicked" WidthRequest="80" 
                                HorizontalOptions="Start"/>
                         <!--<Label Grid.Column="7" Text="{Binding Income}"/>
