@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMP609A2.Pages.StatsPage"
+             Title="Statistics">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Farm Livestock Statistics" FontSize="22" FontAttributes="Bold" />
+
+            <Label Text="Livestock Type" FontAttributes="Bold" />
+            <Picker x:Name="TypePicker" Title="Select type" SelectedIndexChanged="TypePicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>All</x:String>
+                        <x:String>Cow</x:String>
+                        <x:String>Sheep</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Colour" FontAttributes="Bold" />
+            <Picker x:Name="ColourPicker" Title="Select colour">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>All</x:String>
+                        <x:String>Black</x:String>
+                        <x:String>Red</x:String>
+                        <x:String>White</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Days to Project" FontAttributes="Bold" />
+            <Entry x:Name="DaysInput" Placeholder="e.g. 30" Keyboard="Numeric" />
+
+            <Button x:Name="CalculateButton" Text="Calculate" Clicked="CalculateButton_Clicked" />
+
+            <BoxView HeightRequest="1" Color="Gray" Margin="0,10" />
+
+            <Label Text="Calculation Results" FontSize="18" FontAttributes="Bold" />
+            <Label x:Name="CountLabel" />
+            <Label x:Name="PercentageLabel" />
+            <Label x:Name="TaxLabel" />
+            <Label x:Name="ProfitLabel" />
+            <Label x:Name="AvgWeightLabel" />
+            <Label x:Name="ProduceLabel" />
+            <Label x:Name="MilkLabel" />
+            <Label x:Name="WoolLabel" />
+
+            <VerticalStackLayout x:Name="BreakdownSection" IsVisible="False" Spacing="5" Margin="0,10,0,0">
+                <BoxView HeightRequest="1" Color="Gray" Margin="0,0,0,10" />
+                <Label x:Name="BreakdownHeaderLabel" FontSize="18" FontAttributes="Bold" />
+                <Label x:Name="TotalCowProfitLabel" />
+                <Label x:Name="TotalSheepProfitLabel" />
+                <Label x:Name="AvgCowProfitLabel" />
+                <Label x:Name="AvgSheepProfitLabel" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
