@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMP609A2.Pages.ForecastPage"
+             Title="Forecast">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Profit Forecast for Future Investment" FontSize="22" FontAttributes="Bold" />
+
+            <Label Text="Livestock Type" FontAttributes="Bold" />
+            <Picker x:Name="TypePicker" Title="Select type">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Cow</x:String>
+                        <x:String>Sheep</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Investment Quantity" FontAttributes="Bold" />
+            <Entry x:Name="QuantityInput" Placeholder="e.g. 10" Keyboard="Numeric" />
+
+            <Label Text="Number of Days" FontAttributes="Bold" />
+            <Entry x:Name="DaysInput" Placeholder="e.g. 30" Keyboard="Numeric" />
+
+            <Button x:Name="CalculateButton" Text="Calculate" Clicked="CalculateButton_Clicked" />
+
+            <BoxView HeightRequest="1" Color="Gray" Margin="0,10" />
+
+            <Label Text="Calculation Results" FontSize="18" FontAttributes="Bold" />
+            <Label x:Name="AvgProfitLabel" />
+            <Label x:Name="ForecastLabel" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
