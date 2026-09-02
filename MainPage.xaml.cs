@@ -1,4 +1,5 @@
 ﻿namespace COMP609A2
+    // So i can commit all
 {
     public partial class MainPage : ContentPage
     {
