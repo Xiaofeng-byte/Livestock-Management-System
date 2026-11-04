@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Net;
 
 namespace COMP609A2.Pages;
@@ -9,20 +10,26 @@ public partial class DataPage : ContentPage
     public DataPage(DatabaseService dbs)
 	{
 		InitializeComponent();
+
         BindingContext = this;
         _dbs = dbs;
-        dbs.ReadItems().ForEach(x => LiveStocks.Add(x));
+        dbs.ReadItemsLS().ForEach(x => LiveStocks.Add(x));
         WeakReferenceMessenger.Default.Register<DBUpdateMessage>(this, (r, m) =>
         {
             //if (m.Value == true) 
             LiveStocks.Clear();
-            dbs.ReadItems().ForEach(x => LiveStocks.Add(x));
+            dbs.ReadItemsLS().ForEach(x => LiveStocks.Add(x));
         }
         );
     }
 
     private async void DeleteButton_Clicked(object sender, EventArgs e)
     {
+        if(GlobalVariables.IsAdmin == false)
+        {
+            await DisplayAlertAsync("Permission Denied", "You do not have permission to delete livestock records.", "OK");
+            return;
+        }
         if (sender is Button button && button.BindingContext is LiveStock livestock)
         {
             bool result = await DisplayAlertAsync(
@@ -32,7 +39,7 @@ public partial class DataPage : ContentPage
                 "No");
             if (result)
             {
-                int deleted = _dbs.DeleteItem(livestock);
+                int deleted = _dbs.DeleteItemLS(livestock);
                 if (deleted > 0)
                 {
                     WeakReferenceMessenger.Default.Send(new DBUpdateMessage(true));

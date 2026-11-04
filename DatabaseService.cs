@@ -17,8 +17,9 @@ public class DatabaseService
             File.WriteAllBytes(dbPath, memoryStream.ToArray());//Convert the memory contents into a byte[]
         }
         _conn = new SQLiteConnection(dbPath);
+        _conn.CreateTable<Users>();
     }
-    public List<LiveStock> ReadItems()
+    public List<LiveStock> ReadItemsLS()
     {
         var liveStocks = new List<LiveStock>();
         var lst1 = _conn.Table<Cow>().ToList();
@@ -27,15 +28,15 @@ public class DatabaseService
         liveStocks.AddRange(lst2);
         return liveStocks;
     }
-    public int InsertItem(LiveStock item)
+    public int InsertItemLS(LiveStock item)
     {
         return _conn.Insert(item);
     }
-    public int UpdateItem(LiveStock item)
+    public int UpdateItemLS(LiveStock item)
     {
         return _conn.Update(item);
     }
-    public LiveStock FindItem(int id)
+    public LiveStock FindItemLS(int id)
     {
         LiveStock item;
         item = _conn.Find<Cow>(id);
@@ -45,8 +46,17 @@ public class DatabaseService
         }
         return item;
     }
-    public int DeleteItem(LiveStock item) 
+    public int DeleteItemLS(LiveStock item) 
     {
         return _conn.Delete(item);
+    }
+    public Users FindItemUser(string username, string password)
+    {
+        Users user = _conn.Table<Users>().FirstOrDefault(u => u.Username == username && u.Password == password);
+        return user;
+    }
+    public int InsertItemUser(Users item)
+    {
+        return _conn.Insert(item);
     }
 }

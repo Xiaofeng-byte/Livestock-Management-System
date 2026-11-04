@@ -60,7 +60,7 @@ public partial class StatsPage : ContentPage
         string colour = (string)ColourPicker.SelectedItem;
         int.TryParse(DaysInput.Text, out int days);
 
-        var all = _dbs.ReadItems();
+        var all = _dbs.ReadItemsLS();
         var stats = StatisticsService.Calculate(all, type, colour, days);
 
         CountLabel.Text = $"Number of selected livestock ({type} type in {colour} colour): {stats.Count}";

@@ -39,6 +39,11 @@ public partial class CreatePage : ContentPage
 
     private async void CreateButton_Clicked(object sender, EventArgs e)
     {
+        if (GlobalVariables.IsAdmin == false)
+        {
+            await DisplayAlertAsync("Permission Denied", "You do not have permission to create livestock records.", "OK");
+            return;
+        }
         if (TypePicker.SelectedItem is not string livestockType)
         {
             await DisplayAlertAsync("Validation", "Please select a livestock type.", "OK");
@@ -75,7 +80,7 @@ public partial class CreatePage : ContentPage
         }
         else
             return;
-        int added = _dbs.InsertItem(ls);
+        int added = _dbs.InsertItemLS(ls);
         if (added > 0)
         {
             WeakReferenceMessenger.Default.Send(new DBUpdateMessage(true));

@@ -1,4 +1,6 @@
-﻿namespace COMP609A2;
+﻿using System.ComponentModel;
+
+namespace COMP609A2;
 
 public abstract class LiveStock
 {
@@ -53,4 +55,15 @@ public class Sheep : LiveStock
     {
         get { return GetType().Name; }
     }
+}
+
+public class Users
+{
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+    [MaxLength(100)]
+    public string? Username { get; set; }
+    [PasswordPropertyText(true),MaxLength(15)]
+    public string? Password { get; set; }
+    public Boolean IsAdmin { get; set; }
 }
