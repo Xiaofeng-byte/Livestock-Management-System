@@ -28,7 +28,7 @@ public partial class ForecastPage : ContentPage
             return;
         }
 
-        var all = _dbs.ReadItems();
+        var all = _dbs.ReadItemsLS();
         var (avgDailyProfit, totalForecast) = ForecastService.Calculate(all, type, quantity, days);
 
         AvgProfitLabel.Text = $"Based on Avg Daily {type} Profit of ${avgDailyProfit}";

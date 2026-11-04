@@ -8,11 +8,12 @@
     Title="COMP609A2">
 
     <TabBar>
-        <ShellContent Shell.NavBarIsVisible="False" Title="Livestock Listing" ContentTemplate="{DataTemplate Pages:DataPage}"/>
+        <ShellContent Shell.NavBarIsVisible="False" Title="Livestock Listing" ContentTemplate="{DataTemplate Pages:DataPage}" Route="MainPage"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Create" ContentTemplate="{DataTemplate Pages:CreatePage}"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Update" ContentTemplate="{DataTemplate Pages:UpdatePage}"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Statistics" ContentTemplate="{DataTemplate Pages:StatsPage}"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Forecast" ContentTemplate="{DataTemplate Pages:ForecastPage}"/>
+        <ShellContent Shell.NavBarIsVisible="False" Title="Login" ContentTemplate="{DataTemplate Pages:LoginPage}" Route="LoginPage"/>
     </TabBar>
 
 </Shell>

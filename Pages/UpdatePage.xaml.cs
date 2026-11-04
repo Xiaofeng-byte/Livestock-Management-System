@@ -11,13 +11,13 @@ public partial class UpdatePage : ContentPage
 		_dbs = dbs;
         BindingContext = this;
 
-        dbs.ReadItems().ForEach(x => Id.Add(x.Id));
+        dbs.ReadItemsLS().ForEach(x => Id.Add(x.Id));
     }
 
     private void IDPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         int id = int.Parse(IDPicker.SelectedItem.ToString());
-        var item = _dbs.FindItem(id);
+        var item = _dbs.FindItemLS(id);
         livestock = item;
         TypeUpdate.Text = item.ClassName;
         ExpenseUpdate.Text = item.Expense.ToString();
@@ -49,6 +49,12 @@ public partial class UpdatePage : ContentPage
 
     private async void UpdateButton_Clicked(object sender, EventArgs e)
     {
+        if (GlobalVariables.IsAdmin == false)
+        {
+            await DisplayAlertAsync("Permission Denied", "You do not have permission to update livestock records.", "OK");
+            return;
+        }
+
         int added;
         if (!double.TryParse(ExpenseUpdate.Text, out double expense) || !double.TryParse(WeightUpdate.Text, out double weight)
             || !double.TryParse(ProductionUpdate.Text, out double production))
@@ -63,7 +69,7 @@ public partial class UpdatePage : ContentPage
             ls.Weight = weight;
             ls.Colour = ColourPicker.SelectedItem.ToString();
             ls.Milk = production;
-            added = _dbs.UpdateItem(ls);
+            added = _dbs.UpdateItemLS(ls);
         }
         else if (livestock != null && livestock.ClassName == "Sheep")
         {
@@ -72,7 +78,7 @@ public partial class UpdatePage : ContentPage
             ls.Weight = weight;
             ls.Colour = ColourPicker.SelectedItem.ToString();
             ls.Wool = production;
-            added = _dbs.UpdateItem(ls);
+            added = _dbs.UpdateItemLS(ls);
         }
         else
         {
