@@ -67,3 +67,14 @@ public class Users
     public string? Password { get; set; }
     public Boolean IsAdmin { get; set; }
 }
+public class ChartData
+{
+    public string Category { get; set; }
+    public double Value { get; set; }
+
+    public ChartData(string category, double value)
+    {
+        Category = category;
+        Value = value;
+    }
+}

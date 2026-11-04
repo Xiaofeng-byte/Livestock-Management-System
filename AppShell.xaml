@@ -14,6 +14,7 @@
         <ShellContent Shell.NavBarIsVisible="False" Title="Statistics" ContentTemplate="{DataTemplate Pages:StatsPage}"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Forecast" ContentTemplate="{DataTemplate Pages:ForecastPage}"/>
         <ShellContent Shell.NavBarIsVisible="False" Title="Login" ContentTemplate="{DataTemplate Pages:LoginPage}" Route="LoginPage"/>
+        <ShellContent Shell.NavBarIsVisible="False" Title="Chart" ContentTemplate="{DataTemplate Pages:ChartPage}"/>
     </TabBar>
 
 </Shell>

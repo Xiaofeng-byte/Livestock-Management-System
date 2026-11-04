@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="COMP609A2.Pages.ChartPage"
+             Title="ChartPage">
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Livestock Distribution"
+           FontSize="24"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"/>
+        <Grid BackgroundColor="Transparent" ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+            <chart:SfCircularChart HeightRequest="450" WidthRequest="450" Grid.Column="0" Grid.Row="0">
+
+                <chart:SfCircularChart.Series>
+
+                    <chart:PieSeries
+        ItemsSource="{Binding ChartDataLSColour}"
+        XBindingPath="Category"
+        YBindingPath="Value"
+        ShowDataLabels="True"
+                        PaletteBrushes="{Binding CustomBrushes}">
+
+                        <chart:PieSeries.DataLabelSettings>
+                            <chart:CircularDataLabelSettings
+                LabelPosition="Outside"
+                                SmartLabelAlignment="None"/>
+                        </chart:PieSeries.DataLabelSettings>
+
+                    </chart:PieSeries>
+
+                </chart:SfCircularChart.Series>
+
+                <chart:SfCircularChart.Legend>
+                    <chart:ChartLegend />
+                </chart:SfCircularChart.Legend>
+
+            </chart:SfCircularChart>
+
+            <chart:SfCartesianChart HeightRequest="350" Grid.Column="1" Grid.Row="0">
+
+                <chart:SfCartesianChart.XAxes>
+                    <chart:CategoryAxis />
+                </chart:SfCartesianChart.XAxes>
+
+                <chart:SfCartesianChart.YAxes>
+                    <chart:NumericalAxis />
+                </chart:SfCartesianChart.YAxes>
+
+                <chart:SfCartesianChart.Series>
+                    <chart:ColumnSeries
+            ItemsSource="{Binding ChartDataLSType}"
+            XBindingPath="Category"
+            YBindingPath="Value"
+            ShowDataLabels="True" />
+                </chart:SfCartesianChart.Series>
+
+            </chart:SfCartesianChart>
+        </Grid>
+        <!--<chart:SfCircularChart HeightRequest="350">
+
+            <chart:SfCircularChart.Series>
+
+                <chart:PieSeries
+                ItemsSource="{Binding ChartData}"
+                XBindingPath="Category"
+                YBindingPath="Value"
+                ShowDataLabels="True">
+
+                    <chart:PieSeries.DataLabelSettings>
+                        <chart:CircularDataLabelSettings
+                        LabelPosition="Outside"/>
+                    </chart:PieSeries.DataLabelSettings>
+
+                </chart:PieSeries>
+
+            </chart:SfCircularChart.Series>
+
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend />
+            </chart:SfCircularChart.Legend>
+
+        </chart:SfCircularChart>-->
+
+    </VerticalStackLayout>
+    
+</ContentPage>
+
+<!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="COMP609A2.Pages.ChartPage"
+             Title="Livestock Statistics">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Livestock Distribution"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <chart:SfCircularChart HeightRequest="350">
+
+            <chart:SfCircularChart.Series>
+
+                <chart:PieSeries
+                    ItemsSource="{Binding ChartData}"
+                    XBindingPath="Category"
+                    YBindingPath="Value"
+                    ShowDataLabels="True">
+
+                    <chart:PieSeries.DataLabelSettings>
+                        <chart:CircularDataLabelSettings
+                            LabelPlacement="Outside"/>
+                    </chart:PieSeries.DataLabelSettings>
+
+                </chart:PieSeries>
+
+            </chart:SfCircularChart.Series>
+
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend />
+            </chart:SfCircularChart.Legend>
+
+        </chart:SfCircularChart>
+
+    </VerticalStackLayout>
+    <VerticalStackLayout>
+        <Label Text="Chart Page"
+               FontSize="24"/>
+    </VerticalStackLayout>
+
+</ContentPage>-->
