@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using COMP609A2.Pages;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 
 namespace COMP609A2
@@ -14,10 +15,12 @@ namespace COMP609A2
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                })
-                .Services.AddSingleton<DatabaseService>();//Dependency injection
+                });
+            builder.ConfigureSyncfusionCore();
+            builder.Services.AddSingleton<DatabaseService>();//Dependency injection
+            builder.Services.AddTransient<ChartPage>();
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

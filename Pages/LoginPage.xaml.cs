@@ -37,7 +37,7 @@ public partial class LoginPage : ContentPage
         {
             string? username = UsernameEntry.Text?.Trim();
             string? password = PasswordEntry.Text?.Trim();
-            var user = _dbs.FindItemUser(username, password);
+            var user = _dbs.LoginUser(username, password);
             if (user != null)
             {
                 // Login successful
@@ -84,14 +84,14 @@ public partial class LoginPage : ContentPage
             Password = password,
             IsAdmin = IsAdmin.SelectedIndex == 1 
         };
-        var user = _dbs.FindItemUser(username, password);
+        var user = _dbs.FindItemUser(username);
         if (user != null)
         {
             await DisplayAlertAsync("Sign-in Failed", "Username already exists.", "OK");
             return;
         }
         _dbs.InsertItemUser(newUser);
-        var existingUser = _dbs.FindItemUser(username, password);
+        var existingUser = _dbs.LoginUser(username, password);
         if (existingUser != null)
         {
             GlobalVariables.CurrentUser = existingUser.Username;
