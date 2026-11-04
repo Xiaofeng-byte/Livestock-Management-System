@@ -50,7 +50,12 @@ public class DatabaseService
     {
         return _conn.Delete(item);
     }
-    public Users FindItemUser(string username, string password)
+    public Users FindItemUser(string username)
+    {
+        Users user = _conn.Table<Users>().FirstOrDefault(u => u.Username == username);
+        return user;
+    }
+    public Users LoginUser(string username, string password)
     {
         Users user = _conn.Table<Users>().FirstOrDefault(u => u.Username == username && u.Password == password);
         return user;
